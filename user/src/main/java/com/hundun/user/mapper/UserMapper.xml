@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hundun.user.mapper.UserMapper">
+
+    <select id="getUserList" resultType="com.hundun.user.entity.User">
+        select *
+        from user
+    </select>
+
+    <insert id="saveUser" parameterType="com.hundun.user.entity.User">
+        INSERT INTO `user`( `user_name`, `password`, `sex`, `age`, `mobile`, `email`, `address`,  `status`)
+        VALUES (#{userName}, #{password}, #{sex}, #{age}, #{mobile}, #{email}, #{address}, #{status});
+
+    </insert>
+
+    <select id="getUserById" resultType="com.hundun.user.entity.User">
+        select * from user where user_oid = #{id}
+    </select>
+</mapper>
